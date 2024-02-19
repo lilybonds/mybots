@@ -18,7 +18,7 @@ for i in range (1,2000):
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-    # backLegTouch = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    pyrosim.Set_Motor_For_Joint(bodyIndex = robotId,jointName = "Torso_BackLeg",controlMode = p.POSITION_CONTROL,targetPosition = numpy.pi/4.0,maxForce = 500)
 p.disconnect()
 print(backLegSensorValues)
 numpy.save("data/backLegSensorValues.npy",backLegSensorValues)
