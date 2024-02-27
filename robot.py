@@ -9,3 +9,4 @@ class ROBOT:
     def __intit__(self):
         self.sensors={}
         self.motors={}
+        self.robotId = p.loadURDF("body.urdf")
