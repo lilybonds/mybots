@@ -10,11 +10,9 @@ from world import WORLD
 from robot import ROBOT
 
 simulation = SIMULATION()
-world= WORLD()
-robot=ROBOT()
-# #robotId = p.loadURDF("body.urdf")
-# backLegSensorValues = numpy.zeros(c.loop_length)
-# frontLegSensorValues = numpy.zeros(c.loop_length)
+simulation.Run()
+
+
 # xVals=numpy.linspace(0,2*numpy.pi,c.loop_length)
 # frontLegtargetAngles=c.frontLegamplitude * numpy.sin(c.frontLegfrequency * xVals + c.frontLegphaseOffset)
 # backLegtargetAngles=c.backLegamplitude * numpy.sin(c.backLegfrequency * xVals + c.backLegphaseOffset)

@@ -7,6 +7,6 @@ import random
 import constants as c
 
 class WORLD:
-    def __intit__(self):
+    def __init__(self):
         self.planeId = p.loadURDF("plane.urdf")
         p.loadSDF("world.sdf")
