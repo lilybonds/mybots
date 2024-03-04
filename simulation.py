@@ -19,11 +19,7 @@ class SIMULATION:
             time.sleep(c.sleep)
             p.stepSimulation()
             self.robot.Sense(t)
-            self.robot.Act()
-            # backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-            # frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-            # pyrosim.Set_Motor_For_Joint(bodyIndex = simulation.robotId,jointName = "Torso_BackLeg",controlMode = p.POSITION_CONTROL,targetPosition = backLegtargetAngles[i],maxForce = c.max_force)
-            # pyrosim.Set_Motor_For_Joint(bodyIndex = simulation.robotId,jointName = "Torso_FrontLeg",controlMode = p.POSITION_CONTROL,targetPosition = frontLegtargetAngles[i],maxForce = c.max_force)
-
+            self.robot.Act(t)
+            
     def __del__(self):
         p.disconnect()
