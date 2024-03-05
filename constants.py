@@ -6,6 +6,6 @@ frequency=10
 phaseOffset=0
 
 
-loop_length=2000
+loop_length=1000
 sleep=1/60
 max_force=50

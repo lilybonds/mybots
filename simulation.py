@@ -19,6 +19,7 @@ class SIMULATION:
             time.sleep(c.sleep)
             p.stepSimulation()
             self.robot.Sense(t)
+            self.robot.Think()
             self.robot.Act(t)
             
     def __del__(self):
