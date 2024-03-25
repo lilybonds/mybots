@@ -7,15 +7,18 @@ from robot import ROBOT
 import constants as c
 
 class SIMULATION:
-    def __init__(self):
-        physicsClient = p.connect(p.GUI)
+    def __init__(self,directOrGUI):
+        if directOrGUI=="DIRECT":
+            physicsClient = p.connect(p.DIRECT)
+        else:
+            physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
         self.world=WORLD()
         self.robot=ROBOT()
 
     def Run(self):
-        for t in range (1,c.loop_length):
+        for t in range (c.loop_length):
             time.sleep(c.sleep)
             p.stepSimulation()
             self.robot.Sense(t)
@@ -24,3 +27,6 @@ class SIMULATION:
             
     def __del__(self):
         p.disconnect()
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
