@@ -8,14 +8,17 @@ import constants as c
 from sensor import SENSOR
 from motor import MOTOR
 from pyrosim.neuralNetwork import NEURAL_NETWORK
+import os
 
 class ROBOT:
-    def __init__(self):
+    def __init__(self,solutionID):
+        self.myID=solutionID
         self.robotId = p.loadURDF("body.urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
-        self.nn = NEURAL_NETWORK("brain.nndf")
+        self.nn = NEURAL_NETWORK("brain"+solutionID+".nndf")
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
+        os.system("del brain"+solutionID+".nndf")
     
     def Prepare_To_Sense(self):
         self.sensors={}
@@ -46,6 +49,8 @@ class ROBOT:
        stateOfLinkZero= p.getLinkState(self.robotId,0)
        positionOfLinkZero=stateOfLinkZero[0]
        xCoordinateOfLinkZero=positionOfLinkZero[0]
-       f=open("fitness.txt","w")
+       f=open("tmp"+str(self.myID)+".txt","w")
        f.write(str(xCoordinateOfLinkZero))
        f.close()
+       os.rename("tmp"+str(self.myID)+".txt" , "fitness"+str(self.myID)+".txt")
+       

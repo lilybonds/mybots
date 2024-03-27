@@ -11,3 +11,4 @@ sleep=1/60
 max_force=50
 
 numberOfGenerations=10
+populationSize=10
