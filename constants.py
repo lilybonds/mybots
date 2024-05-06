@@ -8,11 +8,11 @@ phaseOffset=numpy.pi/9
 
 loop_length=2000
 sleep=1/100
-max_force=100
+max_force=50
 
 numberOfGenerations=30
 populationSize=10
 
 numSensorNeurons=7
 numMotorNeurons=12
-motorJointRange=0.7
+motorJointRange=0.5
