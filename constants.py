@@ -10,8 +10,8 @@ loop_length=2000
 sleep=1/100
 max_force=50
 
-numberOfGenerations=30
-populationSize=10
+numberOfGenerations=1
+populationSize=1
 
 numSensorNeurons=5
 numMotorNeurons=8

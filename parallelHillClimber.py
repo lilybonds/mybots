@@ -61,6 +61,7 @@ class PARALLEL_HILL_CLIMBER:
         bestFitness=-1
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:
+                bestFitness=self.parents[key].fitness
                 best=self.parents[key]
         best.Start_Simulation("GUI")
                 
