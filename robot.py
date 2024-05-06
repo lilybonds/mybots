@@ -13,6 +13,8 @@ import os
 class ROBOT:
     def __init__(self,solutionID):
         self.myID=solutionID
+        while not os.path.exists("body.urdf"):
+            time.sleep(0.01)
         self.robotId = p.loadURDF("body.urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.nn = NEURAL_NETWORK("brain"+solutionID+".nndf")
@@ -53,8 +55,15 @@ class ROBOT:
        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
        basePosition = basePositionAndOrientation[0]
        xPosition = basePosition[0]
+       t=0
+       torso=self.sensors["Torso"]
+       for val in torso.values:
+           if val == 1:
+               t+=1
+    #    print(t)
+       fitness = xPosition / (1 + t)
        f=open("tmp"+str(self.myID)+".txt","w")
-       f.write(str(xPosition))
+       f.write(str(fitness))
        f.close()
        os.rename("tmp"+str(self.myID)+".txt" , "fitness"+str(self.myID)+".txt")
        

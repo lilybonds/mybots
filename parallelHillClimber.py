@@ -2,11 +2,13 @@ from solution import SOLUTION
 import constants as c
 import copy
 import os
+import numpy
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
         self.parents={}
+        self.bestInGeneration=numpy.empty(c.numberOfGenerations)
         self.nextAvailableID=0
         for i in range(c.populationSize):
             self.parents[i]=SOLUTION(self.nextAvailableID)
@@ -39,6 +41,11 @@ class PARALLEL_HILL_CLIMBER:
         for key in self.parents:
             if(self.parents[key].fitness<self.children[key].fitness):
                 self.parents[key]=self.children[key]
+        bestFitness=-1
+        for key in self.parents:
+            if self.parents[key].fitness>bestFitness:
+                bestFitness=self.parents[key].fitness
+        numpy.append(self.bestInGeneration,bestFitness)
     
     def Print(self):
         print("")
@@ -47,9 +54,12 @@ class PARALLEL_HILL_CLIMBER:
         print("")
 
     def Show_Best(self):
+        print(self.bestInGeneration)
+        numpy.save("data/bestPerGen.npy",self.bestInGeneration)
         bestFitness=-1
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:
+                bestFitness=self.parents[key].fitness
                 best=self.parents[key]
         best.Start_Simulation("GUI")
                 
