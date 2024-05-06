@@ -8,7 +8,7 @@ class PARALLEL_HILL_CLIMBER:
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
         self.parents={}
-        self.bestInGeneration=numpy.empty(c.numberOfGenerations)
+        self.bestInGeneration=[]
         self.nextAvailableID=0
         for i in range(c.populationSize):
             self.parents[i]=SOLUTION(self.nextAvailableID)
@@ -48,7 +48,7 @@ class PARALLEL_HILL_CLIMBER:
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:
                 bestFitness=self.parents[key].fitness
-        self.bestInGeneration=numpy.append(self.bestInGeneration,bestFitness)
+        self.bestInGeneration.append(bestFitness)
 
     def Print(self):
         print("")
