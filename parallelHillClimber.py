@@ -47,6 +47,7 @@ class PARALLEL_HILL_CLIMBER:
         print("")
 
     def Show_Best(self):
+        
         bestFitness=-1
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:

@@ -6,11 +6,11 @@ frequency=10
 phaseOffset=numpy.pi/9
 
 
-loop_length=1000
-sleep=1/60
+loop_length=2000
+sleep=1/100
 max_force=50
 
-numberOfGenerations=10
+numberOfGenerations=30
 populationSize=10
 
 numSensorNeurons=5
