@@ -4,8 +4,10 @@ import matplotlib.pyplot
 bestPerGen=numpy.load("data/bestPerGen.npy")
 print(bestPerGen)
 matplotlib.pyplot.plot(bestPerGen, label="Best", linewidth=2)
-matplotlib.pyplot.legend()
+matplotlib.pyplot.xlabel("Generation")
+matplotlib.pyplot.ylabel("Best fitness")
 matplotlib.pyplot.show()
+
 
 # backLegtargetAngles=numpy.load("data/backLegtargetAngles.npy")
 # frontLegtargetAngles=numpy.load("data/frontLegtargetAngles.npy")

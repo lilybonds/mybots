@@ -10,7 +10,7 @@ loop_length=2000
 sleep=1/100
 max_force=100
 
-numberOfGenerations=20
+numberOfGenerations=30
 populationSize=10
 
 numSensorNeurons=7

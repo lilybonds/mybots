@@ -25,6 +25,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Evaluate(self.children)
         self.Print()
         self.Select()
+        self.FindBest()
 
     def Spawn(self):
         self.children={}
@@ -41,11 +42,13 @@ class PARALLEL_HILL_CLIMBER:
         for key in self.parents:
             if(self.parents[key].fitness<self.children[key].fitness):
                 self.parents[key]=self.children[key]
+        
+    def FindBest(self):
         bestFitness=-1
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:
                 bestFitness=self.parents[key].fitness
-        numpy.append(self.bestInGeneration,bestFitness)
+        self.bestInGeneration=numpy.append(self.bestInGeneration,bestFitness)
     
     def Print(self):
         print("")
