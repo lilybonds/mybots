@@ -1,7 +1,7 @@
 import numpy
 import matplotlib.pyplot
 
-bestPerGen=numpy.load("data/bestPerGen.npy")
+bestPerGen=numpy.load("data/bestPerGenA.npy")
 print(bestPerGen)
 matplotlib.pyplot.plot(bestPerGen, label="Best", linewidth=2)
 matplotlib.pyplot.xlabel("Generation")

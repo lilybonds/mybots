@@ -58,7 +58,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Show_Best(self):
         print(self.bestInGeneration)
-        numpy.save("data/bestPerGen.npy",self.bestInGeneration)
+        numpy.save("data/bestPerGenA.npy",self.bestInGeneration)
         bestFitness=-1
         for key in self.parents:
             if self.parents[key].fitness>bestFitness:
