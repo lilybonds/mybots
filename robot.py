@@ -53,8 +53,15 @@ class ROBOT:
        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
        basePosition = basePositionAndOrientation[0]
        xPosition = basePosition[0]
+       t=0
+       torso=self.sensors["Torso"]
+       for val in torso.values:
+           if val == 1:
+               t+=1
+    #    print(t)
+       fitness = xPosition / (1 + t)
        f=open("tmp"+str(self.myID)+".txt","w")
-       f.write(str(xPosition))
+       f.write(str(fitness))
        f.close()
        os.rename("tmp"+str(self.myID)+".txt" , "fitness"+str(self.myID)+".txt")
        
